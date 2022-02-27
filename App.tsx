@@ -10,6 +10,10 @@ import Routes from '~/routes';
 // Stores
 import { store } from '~/config/store/create-store';
 
+if (__DEV__) {
+  import('~/config/ReactotronConfig').then(() => console.log('Reactotron Configured'));
+}
+
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 

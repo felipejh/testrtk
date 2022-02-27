@@ -12,7 +12,7 @@ export interface LoginResponse {
   message: string;
   data: {
     $id: string;
-    Id: 7075;
+    Id: number;
     Name: string;
     Email: string;
     Token: string;
@@ -20,14 +20,14 @@ export interface LoginResponse {
 }
 
 export const authApi = createApi({
-  reducerPath: 'auth',
+  reducerPath: 'authApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://restapi.adequateshop.com' }),
   endpoints: builder => ({
     login: builder.mutation<LoginResponse, LoginRequest>({
       query: params => ({
         url: 'api/authaccount/login',
         method: 'POST',
-        data: params,
+        body: params,
       }),
     }),
   }),
