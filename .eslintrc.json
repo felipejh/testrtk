@@ -35,11 +35,12 @@
     "grouped-import/group": [
       "warn",
       {
-        "Packages": [{ "path": "react" }, { "path": "react-native" }],
+        "Packages": [{ "path": "react" }, { "path": "react-native" }, { "path": "redux" }],
         "Pages": [{ "path": "~/pages" }],
         "Styles": [{ "path": "styled-components/" }, { "path": "/styles" }],
         "Models": [{ "path": ".model" }],
-        "Config": [{ "path": "routes" }, { "path": ".routes" }]
+        "Config": [{ "path": "routes" }, { "path": ".routes" }],
+        "Stores": [{ "path": "store" }]
       }
     ]
   },
