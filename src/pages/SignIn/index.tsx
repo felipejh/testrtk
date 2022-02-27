@@ -1,16 +1,18 @@
 // Packages
 import React, { ReactElement, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 // Styles
 import { Container, Input, Button, ButtonText } from './styles';
 
 function SignIn(): ReactElement {
+  const navigation = useNavigation();
+
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
 
   const handleSignIn = () => {
-    console.log(email);
-    console.log(password);
+    navigation.navigate('Users' as never);
   };
 
   return (
