@@ -9,14 +9,12 @@ declare global {
   }
 }
 
-if (__DEV__) {
-  const { scriptURL } = NativeModules.SourceCode;
-  const host = scriptURL.split('://')[1].split(':')[0];
+const { scriptURL } = NativeModules.SourceCode;
+const host = scriptURL.split('://')[1].split(':')[0];
 
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  const tron = Reactotron.configure({ host }).useReactNative().use(reactotronRedux()).connect();
+const tron = Reactotron.configure({ host }).useReactNative().use(reactotronRedux()).connect();
 
-  console.tron = tron;
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  tron.clear!();
-}
+console.tron = tron;
+tron.clear!();
+
+export default tron;

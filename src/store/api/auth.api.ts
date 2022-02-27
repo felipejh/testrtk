@@ -7,11 +7,9 @@ export interface LoginRequest {
 }
 
 export interface LoginResponse {
-  $id: string;
   code: number;
   message: string;
   data: {
-    $id: string;
     Id: number;
     Name: string;
     Email: string;

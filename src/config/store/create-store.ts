@@ -1,4 +1,5 @@
 import { authApi } from '~/store/api/auth.api';
+import authSlice from '~/store/slice/auth.slice';
 
 // Packages
 import { configureStore, ConfigureStoreOptions } from '@reduxjs/toolkit';
@@ -8,8 +9,10 @@ export const createStore = (options?: ConfigureStoreOptions['preloadedState'] | 
   configureStore({
     reducer: {
       [authApi.reducerPath]: authApi.reducer,
+      authSlice,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(authApi.middleware),
+    enhancers: [console.tron.createEnhancer()],
     ...options,
   });
 
