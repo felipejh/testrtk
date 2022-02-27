@@ -36,7 +36,8 @@
       "warn",
       {
         "Packages": [{ "path": "react" }, { "path": "react-native" }],
-        "Pages": [{ "path": "~/pages/" }]
+        "Pages": [{ "path": "~/pages" }],
+        "Styles": [{ "path": "styled-components/" }, { "path": "/styles" }]
       }
     ]
   },
