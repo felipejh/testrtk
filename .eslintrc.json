@@ -37,7 +37,9 @@
       {
         "Packages": [{ "path": "react" }, { "path": "react-native" }],
         "Pages": [{ "path": "~/pages" }],
-        "Styles": [{ "path": "styled-components/" }, { "path": "/styles" }]
+        "Styles": [{ "path": "styled-components/" }, { "path": "/styles" }],
+        "Models": [{ "path": ".model" }],
+        "Config": [{ "path": "routes" }, { "path": ".routes" }]
       }
     ]
   },
