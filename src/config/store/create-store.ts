@@ -23,7 +23,7 @@ export const createStore = (options?: ConfigureStoreOptions['preloadedState'] | 
   configureStore({
     reducer: persistedReducer,
     middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }).concat(authApi.middleware),
-    enhancers: [console.tron.createEnhancer()],
+    enhancers: [console.tron.createEnhancer!()],
     ...options,
   });
 
