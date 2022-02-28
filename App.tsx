@@ -3,12 +3,13 @@ import React from 'react';
 import { StatusBar, useColorScheme } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
 // Config
 import Routes from '~/routes';
 
 // Stores
-import { store } from '~/config/store/create-store';
+import { store, persistor } from '~/config/store/create-store';
 
 if (__DEV__) {
   import('~/config/ReactotronConfig').then(() => console.log('Reactotron Configured'));
@@ -20,8 +21,10 @@ function App() {
   return (
     <NavigationContainer>
       <Provider store={store}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <Routes />
+        <PersistGate persistor={persistor}>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <Routes />
+        </PersistGate>
       </Provider>
     </NavigationContainer>
   );
