@@ -11,6 +11,8 @@ import Routes from '~/routes';
 // Stores
 import { store, persistor } from '~/config/store/create-store';
 
+import('~/config/ReactotronConfig');
+
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 

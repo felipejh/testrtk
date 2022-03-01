@@ -1,5 +1,7 @@
+import api from '~/config/api/api';
+
 // Packages
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi } from '@reduxjs/toolkit/query/react';
 
 export interface LoginRequest {
   email: string;
@@ -19,7 +21,7 @@ export interface LoginResponse {
 
 export const authApi = createApi({
   reducerPath: 'authApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://restapi.adequateshop.com' }),
+  baseQuery: api,
   endpoints: builder => ({
     login: builder.mutation<LoginResponse, LoginRequest>({
       query: params => ({
