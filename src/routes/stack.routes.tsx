@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Pages
 import SignIn from '~/pages/SignIn';
-import Users from '~/pages/Users';
+import UserList from '~/pages/UserList';
 
 // Models
 import { StackParamList } from '~/models/stack-routes.model';
@@ -19,7 +19,11 @@ function MyStack() {
 
   return (
     <Stack.Navigator>
-      {!token ? <Stack.Screen name="SignIn" component={SignIn} /> : <Stack.Screen name="Users" component={Users} />}
+      {!token ? (
+        <Stack.Screen name="SignIn" component={SignIn} />
+      ) : (
+        <Stack.Screen name="UserList" component={UserList} />
+      )}
     </Stack.Navigator>
   );
 }
