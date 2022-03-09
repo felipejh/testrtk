@@ -2,10 +2,7 @@ import { useGetListUsersQuery } from '~/store/api/users.api';
 
 // Packages
 import React, { ReactElement, useEffect } from 'react';
-import { Alert, FlatList } from 'react-native';
-
-// Models
-import { User } from '~/models/user.model';
+import { Alert } from 'react-native';
 
 // Styles
 import { Container, TextName, TextEmail, List } from './styles';
