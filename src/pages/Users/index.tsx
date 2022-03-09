@@ -1,27 +1,31 @@
+import { useGetListUsersQuery } from '~/store/api/users.api';
+
 // Packages
-import React, { ReactElement } from 'react';
-import { FlatList } from 'react-native';
+import React, { ReactElement, useEffect } from 'react';
+import { Alert, FlatList } from 'react-native';
 
 // Models
 import { User } from '~/models/user.model';
 
 // Styles
-import { Container, TextName, TextEmail } from './styles';
+import { Container, TextName, TextEmail, List } from './styles';
 
 function Users(): ReactElement {
-  const users: Array<User> = [
-    {
-      id: 1,
-      name: 'Felipe',
-      email: 'felipe@gmail.com',
-    },
-  ];
+  const { data: listUsersResponse, isFetching, error, refetch } = useGetListUsersQuery({ page: 1 });
+
+  useEffect(() => {
+    if (error) {
+      Alert.alert('Ops', `Ocorreu um erro: ${error}`);
+    }
+  }, [error]);
 
   return (
     <Container>
-      <FlatList<User>
-        data={users}
+      <List
+        data={listUsersResponse?.data}
         keyExtractor={item => String(item.id)}
+        refreshing={isFetching}
+        onRefresh={refetch}
         renderItem={({ item }) => (
           <>
             <TextName>{item.name}</TextName>

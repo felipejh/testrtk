@@ -9,13 +9,17 @@ import Users from '~/pages/Users';
 // Models
 import { StackParamList } from '~/models/stack-routes.model';
 
+// Stores
+import { useTypedSelector } from '~/config/store/create-store';
+
 const Stack = createNativeStackNavigator<StackParamList>();
 
 function MyStack() {
+  const { token } = useTypedSelector(state => state.authSlice);
+
   return (
     <Stack.Navigator>
-      <Stack.Screen name="SignIn" component={SignIn} />
-      <Stack.Screen name="Users" component={Users} />
+      {!token ? <Stack.Screen name="SignIn" component={SignIn} /> : <Stack.Screen name="Users" component={Users} />}
     </Stack.Navigator>
   );
 }

@@ -1,5 +1,6 @@
 import { authApi } from '~/store/api/auth.api';
 import authSlice from '~/store/slice/auth.slice';
+import { usersApi } from '~/store/api/users.api';
 
 // Packages
 import { combineReducers, configureStore, ConfigureStoreOptions } from '@reduxjs/toolkit';
@@ -14,6 +15,7 @@ const persistConfig = {
 
 const reducers = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
+  [usersApi.reducerPath]: usersApi.reducer,
   authSlice,
 });
 
@@ -22,7 +24,8 @@ const persistedReducer = persistReducer(persistConfig, reducers);
 export const createStore = (options?: ConfigureStoreOptions['preloadedState'] | undefined) =>
   configureStore({
     reducer: persistedReducer,
-    middleware: getDefaultMiddleware => getDefaultMiddleware({ serializableCheck: false }).concat(authApi.middleware),
+    middleware: getDefaultMiddleware =>
+      getDefaultMiddleware({ serializableCheck: false }).concat(authApi.middleware, usersApi.middleware),
     enhancers: [console.tron.createEnhancer!()],
     ...options,
   });

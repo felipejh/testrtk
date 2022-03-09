@@ -5,13 +5,13 @@ import { User } from '~/models/user.model';
 import styled from 'styled-components/native';
 
 // Packages
-import { FlatList } from 'react-native';
+import { FlatList, FlatListProps } from 'react-native';
 
 const Container = styled.View`
   flex: 1;
 `;
 
-const List = styled(FlatList as new () => FlatList<User>)``;
+const List = styled(FlatList as new (props: FlatListProps<User>) => FlatList<User>)``;
 
 const TextName = styled.Text``;
 
